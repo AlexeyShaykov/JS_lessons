@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<head>
+	<link rel="stylesheet" href="style/style.css" type="text/css" media="screen" />
+	<meta charset="utf-8">
+	<title>Учебная работа ДЗ_Урок_3</title>
+	<meta name="description" content="">
+
+</head>
+
+<body>
+	<chessboard></chessboard>
+	<script src="bower_components/riot/riot.min.js"></script>
+	<script src="riot+compiler.js"></script>
+	<script>
+		var alphabetWord = ['a','b','c','d','e','f','g','h'];
+		var alphabetNumber = ['1','2','3','4','5','6','7','8'];
+		riot.mount('chessboard', {cols: 8, rows:8, alphabetWord:alphabetWord,alphabetNumber:alphabetNumber});
+	</script>
+</body>
+</html>

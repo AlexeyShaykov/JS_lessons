@@ -1,0 +1,54 @@
+<!-- Без увеличения -->				
+				<div id="carousel1"> 
+					<div id="innerCarousel">
+						<img class="cloudcarousel" src="images/carousel/1.jpg" alt="Путешествия на мотоцикле" />
+						<img class="cloudcarousel" src="images/carousel/2.jpg" alt="Ночные гонки" />
+						<img class="cloudcarousel" src="images/carousel/3.jpg" alt="Гонки по автобанам" />
+						<img class="cloudcarousel" src="images/carousel/4.jpg" alt="Городские заезды" />
+						<img class="cloudcarousel" src="images/carousel/5.jpg" alt="Мотокросс" />
+						<img class="cloudcarousel" src="images/carousel/6.jpg" alt="Дальние выезды" />
+						<img class="cloudcarousel" src="images/carousel/7.jpg" alt="На харлее с девушкой" />
+						<img class="cloudcarousel" src="images/carousel/8.jpg" alt="Семьей в горы" />
+						<img class="cloudcarousel" src="images/carousel/9.jpg" alt="По бездорожью" />
+						<img class="cloudcarousel" src="images/carousel/10.jpg" alt="Прыжки с адреналином" />
+					</div>
+				</div>
+
+
+
+<!-- С увеличением	-->
+
+				<div id="carousel1"> 
+					<div id="innerCarousel">
+						<a href="images/carousel/1_big.jpg" rel="lightbox"><img class="cloudcarousel" src="images/carousel/1.jpg" alt="Путешествия на мотоцикле" /></a>
+						<a href="images/carousel/2_big.jpg" rel="lightbox"><img class="cloudcarousel" src="images/carousel/2.jpg" alt="Ночные гонки" /></a>
+						<a href="images/carousel/3_big.jpg" rel="lightbox"><img class="cloudcarousel" src="images/carousel/3.jpg" alt="Гонки по автобанам" /></a>
+						<a href="images/carousel/4_big.jpg" rel="lightbox"><img class="cloudcarousel" src="images/carousel/4.jpg" alt="Городские заезды" /></a>
+						<a href="images/carousel/5_big.jpg" rel="lightbox"><img class="cloudcarousel" src="images/carousel/5.jpg" alt="Мотокросс" /></a>
+						<a href="images/carousel/6_big.jpg" rel="lightbox"><img class="cloudcarousel" src="images/carousel/6.jpg" alt="Дальние выезды" /></a>
+						<a href="images/carousel/7_big.jpg" rel="lightbox"><img class="cloudcarousel" src="images/carousel/7.jpg" alt="На харлее с девушкой" /></a>
+						<a href="images/carousel/8_big.jpg" rel="lightbox"><img class="cloudcarousel" src="images/carousel/8.jpg" alt="Семьей в горы" /></a>
+						<a href="images/carousel/9_big.jpg" rel="lightbox"><img class="cloudcarousel" src="images/carousel/9.jpg" alt="По бездорожью" /></a>
+						<a href="images/carousel/10_big.jpg" rel="lightbox"><img class="cloudcarousel" src="images/carousel/10.jpg" alt="Прыжки с адреналином" /></a>
+					</div>
+				</div>
+				
+				
+				
+<!-- Итоговый -->				
+				<div id="carousel1"> 
+					<div id="innerCarousel">
+						<img class="cloudcarousel" src="images/carousel/1.jpg" alt="Путешествия на мотоцикле" />
+						<img class="cloudcarousel" src="images/carousel/2.jpg" alt="Ночные гонки" />
+						<img class="cloudcarousel" src="images/carousel/3.jpg" alt="Гонки по автобанам" />
+						<img class="cloudcarousel" src="images/carousel/4.jpg" alt="Городские заезды" />
+						<img class="cloudcarousel" src="images/carousel/5.jpg" alt="Мотокросс" />
+						<img class="cloudcarousel" src="images/carousel/6.jpg" alt="Дальние выезды" />
+						<img class="cloudcarousel" src="images/carousel/7.jpg" alt="На харлее с девушкой" />
+						<img class="cloudcarousel" src="images/carousel/8.jpg" alt="Семьей в горы" />
+						<img class="cloudcarousel" src="images/carousel/9.jpg" alt="По бездорожью" />
+						<img class="cloudcarousel" src="images/carousel/10.jpg" alt="Прыжки с адреналином" />
+					</div>
+					<div id="buttonLeft"></div>
+					<div id="buttonRight"></div>
+				</div>

@@ -1,0 +1,9 @@
+<div id="gallery">
+<div id="big"><img src="images/gal/start.jpg" alt="Старт" /></div>
+<div id="small">
+<a href="images/gal/1.jpg"><img src="images/gal/1_mini.jpg" alt="Миниатюра 1" /></a>
+<a href="images/gal/2.jpg"><img src="images/gal/2_mini.jpg" alt="Миниатюра 2" /></a>
+<a href="images/gal/3.jpg"><img src="images/gal/3_mini.jpg" alt="Миниатюра 3" /></a>
+<a href="images/gal/4.jpg"><img src="images/gal/4_mini.jpg" alt="Миниатюра 4" /></a>
+</div>
+</div>

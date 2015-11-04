@@ -1,0 +1,14 @@
+#matrix
+{
+	width: 100%;
+	height: 100%;
+	margin: 10px;
+}
+
+#matrix .cell
+{
+	float: left;
+	width: 19px;
+	height: 19px;
+	border: 1px solid #999;
+}

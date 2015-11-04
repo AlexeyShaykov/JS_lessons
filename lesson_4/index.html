@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<link>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/fonts.css">
+    <script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <title></title>
+</head>
+<body>
+    <main>
+        <ul class="tab-menu">
+            <li id="JSDOM" class="active">JavaScript DOM</li>
+            <li id="OOP">ООП в JavaScript AJAX</li>
+            <li id="JQ_1">jQuery (часть 1)</li>
+            <li id="JQ_2">jQuery (часть2)</li>
+            <li id="Plus">+</li>
+        </ul>
+        <div class="clear"></div>
+        <div class="tab-top-border"></div>
+        <article id="JSDOM-tab" class="tab-content active">
+            <h2>JavaScript и DOM Альтернативное домашнее задание:</h2>
+            <p><strong>1)</strong> Напишите функцию для создания таблицы размером NхM. Такой, чтобы каждая ячейка заполнялась случайной буквой русского алфавита и случайным цветом фона (для выполнения задания, воспользуйтесь методом random() объекта Math; кроме того создайте массив в элементами – буквами алфавита).<br>
+                <strong>2)</strong> Напишите функцию создания шахматной доски: таблица размером 8х8, в которой строки и столбцы пронумерованы соответствующим образом, а так же ячейки чередуются по цвету. Подсказка: для чередования можно использовать операцию %.<br>
+                <strong>3</strong>) Сделать так, чтобы при нажатии на ячейку шахматной доски извлекался ее адрес, например, А1 и тп. и записывался в произвольное место страницы.<br>
+                <strong>4</strong>) Сделать так, чтобы при нажатии на ячейку шахматной доски выбранная ячейка выделялась, например, утолщением ее границ, изменением цвета или любым другим способом. При это нужно, чтобы одновременно могла быть выделена только одна ячейка. Т.е. если нажимается еще одна ячейка - предыдущая должна вернуться в исходное состояние.<br>
+                <strong>5</strong>) Сделать, чтобы выделение ячейки можно было перемещать стрелками на клавиатуре. Так же при этом должен срабатывать код из п. 3.</p>
+        </article>
+        <article id="OOP-tab" class="tab-content">
+            <h2>ООП в JavaScript и AJAX Альтернативное домашнее задание:</h2>
+            <p><strong>1)</strong> Шахматная доска в парадигме ООП.<br>
+                <strong>2)</strong> С помощью прототипного наследования, создайте расширение для всех строковых объектов, которое позволит выводить строку, заключив ее в любой HTML-элемент. Например, есть переменная str, содержащая строку “Привет мир!”. Обратившись к расширению str.addToElement(“div”,”red”), мы должны получить фрагмент:div class='red'> Привет мир!/div<br>
+                <strong>3)</strong> Создать объект myHTML, который будет работать с HTML-строкой. Объект должен принимать строку текста с помощью метода addText(str) (возвращая при этом сам объект через return), конкатенируя все последующие строки; принимать строку через метод addH(str, N) с двумя параметрами (строка и число от 1 до 6)- склеивать с исходной строкой текущую, помещенную в тег "H". Метод showHTML() должен возвращать строку.<br>
+                <strong>4)</strong> <a href="img/ajax_php.png"  target="_blank">Ajax из методички</a>
+        </article>
+        <article id="JQ_1-tab" class="tab-content">
+            <h2>jQuery (часть 1) Альтернативное домашнее задание :</h2>
+            <p><strong>1)</strong>  Найти все элементы h1, являющиеся потомками div и заменить их содержимое на произвольное.<a href="img/jquery_p1_1.png"  target="_blank">шаблон</a><br>
+                <strong>2)</strong> Установить всем input type="text" произвольное содержимое. Содержимое второго инпута должно отличаться от первого.<a href="img/jquery_p1_2.png"  target="_blank">шаблон</a><br>
+                <strong>3)</strong> Выведите значение option с value=2. <a href="img/jquery_p1_3.png"  target="_blank">шаблон</a><br>
+                <strong>4)</strong> Обернуть текст во втором li тегом b. <a href="img/jquery_p1_4.png"  target="_blank">шаблон</a><br>
+        </article>
+        <article id="JQ_2-tab" class="tab-content">
+            <h2>jQuery (часть 2) Альтернативное домашнее задание - создать контрол, для работы с вкладками. Условия: </h2>
+            <p><strong>1)</strong> Должно работать с произвольным количеством вкладок.<br>
+                <strong>2)</strong> Использовать методы hide и show или подобные.<br>
+                <strong>3)</strong> <a href="http://dimox.name/examples/universal-jquery-tabs-script/"  target="_blank">Рабочий пример</a>
+        </article>
+    </main>
+</body>
+<script>
+</script>
+</html>

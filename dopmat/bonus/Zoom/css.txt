@@ -1,0 +1,32 @@
+/*--Zoom ύττεκς--*/
+
+#imgYamaha {
+    border:2px solid #CCCCCC; 
+    float: left; 
+    width: 300px; 
+    margin-bottom: 20px;
+    }
+    
+#Yamaha a img {
+    border: none;
+    }
+
+#galleryYamaha {
+    margin-left: 10px; 
+    width: 490px; 
+    float: left; 
+    padding-top: 0;
+    }
+    
+#Yamaha h3 {
+    padding-top: 0px;
+    margin-top: 0px;
+    clear: both;
+}
+
+.th {
+    float: left; 
+    width: 100px;
+    margin: 0 10px 10px 0;
+    border: 2px solid #cccccc;
+}

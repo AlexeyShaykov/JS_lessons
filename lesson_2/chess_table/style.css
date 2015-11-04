@@ -1,0 +1,26 @@
+table{
+	border-collapse: collapse;
+	border: 1px solid black;
+}
+table td{
+	border: 1px solid #6d6f6e;
+}
+table td:first-child{
+	border: none;
+}
+table td:last-child{
+	border: none;
+}
+table tr:first-child > td{
+	text-align: center;
+	border: none;
+}
+table tr:last-child > td{
+	text-align: center;
+	border: none;
+}
+#state-click{
+	position: absolute;
+	top: 10px;
+	left: 900px;
+}

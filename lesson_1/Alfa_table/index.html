@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+	<style>
+		table.first {
+			text-align: center;
+			overflow: scroll;
+		}
+	</style>
+	<meta charset="utf-8">
+
+	<title>Учебная работа ДЗ_Урок_1</title>
+	<meta name="description" content="">
+
+</head>
+
+<body>
+	<table-tds></table-tds>
+	<script src="bower_components/riot/riot.min.js"></script>
+	<script src="tags/all.js"></script>
+	<script>
+		var LangMassive = ['А','Б','В','Г','Д','Е','Ё','Ж','З','И','Й','К','Л','М','Н','О','П','Р','С','Т','У','Ф',
+			'Х','Ц','Ч','Ш','Щ','Ъ','Ы','Ь','Э','Ю','Я'];
+		var alphabetWord = ['a','b','c','d','e','f','g','h'];
+		var alphabetNumber = ['8','7','6','5','4','3','2','1'];
+		riot.mount('table-tds',{dict : shuffle(LangMassive), collum: 8, row:8});
+		function shuffle(array) {
+			var counter = array.length, temp, index;
+			while (counter > 0) {
+				index = Math.floor(Math.random() * counter);
+				counter--;
+				temp = array[counter];
+				array[counter] = array[index];
+				array[index] = temp;
+			}
+
+			return array;
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "name": "Alfa_table",
+  "version": "0.0.0",
+  "homepage": "https://github.com/AlexeyShaykov/JS_lessons",
+  "authors": [
+    "Alexey Shaykov <kayfolom@inbox.ru>"
+  ],
+  "main": "index.html",
+  "moduleType": [
+    "amd",
+    "es6",
+    "globals",
+    "node",
+    "yui"
+  ],
+  "keywords": [
+    "riot"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "riot-observable": "*",
+    "riot": "~2.2.4"
+  }
+}

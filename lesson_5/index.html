@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+    <script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        input[type="text"],input[type="email"]:valid {
+            color: green;
+        }
+        input[type="text"],input[type="email"]:invalid {
+            color: red;
+        }
+    </style>
+    <script type="text/javascript">
+        (function($){
+            $(function() {
+                $('#myform').submit(function(event){
+                    event.preventDefault();
+                    var $form = $(this);
+                    $.post("validator.php",{ username:$form.find( 'input[name="username"]' ).val(),password:$form.find( 'input[name="password"]' ).val(),
+                        email:$form.find( 'input[name="email"]' ).val(), gender:$form.find( 'input[name="gender"]:checked' ).val(),
+                        credit_card:$form.find( 'input[name="card-number"]' ).val(),bio:$form.find( 'textarea[name="bio"]' ).val() }, function(data, textStatus){
+                        console.log(textStatus);
+                        console.log(data);
+                    })
+                });
+            });
+        })(jQuery);
+    </script>
+</head>
+<body>
+<main>
+    <form class="form-horizontal" style="margin-top: 10px" data-toggle="validator" id="myform" METHOD=post>
+        <fieldset>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Имя</label>
+                <div class="col-xs-2">
+                    <input type="text" class="form-control" name="username" required/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Пароль(мин 6 символов)</label>
+                <div class="col-xs-2">
+                    <input type="password" class="form-control" name="password" pattern=".{6,100}" required/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputEmail" class="col-xs-3 control-label">Адрес электронной почты</label>
+                <div class="col-xs-2">
+                    <input type="email" class="form-control" name="email" id="inputEmail" data-error="Bruh, that email address is invalid" required/>
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Пол:</label>
+                <div class="col-xs-1">
+                    <label><input type="radio" name="gender" value="male" checked>Муж</label>
+                </div>
+                <div class="col-xs-1">
+                    <label><input type="radio" name="gender" value="male">Жен</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="card-number">Card Number</label>
+                <div class="col-sm-2">
+                    <input type="tel" pattern="[0-9]{13,16}" class="form-control" name="card-number" id="card-number" placeholder="Debit/Credit Card Number" autocomplete="on" data-fv-integer-message required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">О себе</label>
+                <div class="col-xs-3">
+                    <textarea rows="5" class="form-control" name="bio"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label"></label>
+                <input id="sub" type="submit" value="Отправить" class="btn btn-primary">
+                <input type="reset" value="Отчисть" class="btn btn-danger"><br>
+            </div>
+        </fieldset>
+    </form>
+</main>
+</body>
+</html>

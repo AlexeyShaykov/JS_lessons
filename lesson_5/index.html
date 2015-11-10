@@ -12,19 +12,48 @@
         input[type="text"],input[type="email"]:invalid {
             color: red;
         }
+        #ajax_loading { display: none; font-size: 12px; font-family: Tahoma; }
     </style>
     <script type="text/javascript">
+    img1 = new Image(16, 16);  
+    img1.src="images/spinner.gif";
+
+    img2 = new Image(220, 19);  
+    img2.src="images/ajax-loader.gif";
         (function($){
             $(function() {
                 $('#myform').submit(function(event){
+                    $('#submit').css({'display' : 'none'});
+                    $('#reset').css({'display' : 'none'});
+                    $('#ajax_loading').show();
                     event.preventDefault();
                     var $form = $(this);
-                    $.post("validator.php",{ username:$form.find( 'input[name="username"]' ).val(),password:$form.find( 'input[name="password"]' ).val(),
-                        email:$form.find( 'input[name="email"]' ).val(), gender:$form.find( 'input[name="gender"]:checked' ).val(),
-                        credit_card:$form.find( 'input[name="card-number"]' ).val(),bio:$form.find( 'textarea[name="bio"]' ).val() }, function(data, textStatus){
-                        console.log(textStatus);
-                        console.log(data);
-                    })
+                    var $span = $('span');
+                    $span.css({'display' : 'none'});
+                    setTimeout(function() {
+                        $.post("validator.php",{ username:$form.find( 'input[name="username"]' ).val(),password:$form.find( 'input[name="password"]' ).val(),
+                            email:$form.find( 'input[name="email"]' ).val(), gender:$form.find( 'input[name="gender"]:checked' ).val(),
+                            credit_card:$form.find( 'input[name="card-number"]' ).val(),bio:$form.find( 'textarea[name="bio"]' ).val() }, function(data, textStatus){
+                        $('#submit').show();
+                        $('#reset').show();
+                            $('#ajax_loading').hide();
+                                if (textStatus == "success") {
+                                    if (data == "true") {
+                                        $span.html('УРА!')
+                                        $span.css({
+                                                'color' : '#6DBF69',
+                                                'display' : 'block'
+                                                });
+                                    } else {
+                                        $span.html('Печалька')
+                                        $span.css({
+                                                'color' : '#CC4A49',
+                                                'display' : 'block'
+                                                });
+                                    }
+                                }
+                        })
+                    },1000);
                 });
             });
         })(jQuery);
@@ -37,7 +66,7 @@
             <div class="form-group">
                 <label class="col-xs-3 control-label">Имя</label>
                 <div class="col-xs-2">
-                    <input type="text" class="form-control" name="username" required/>
+                    <input type="text" pattern=".{6,100}" class="form-control" name="username" required/>
                 </div>
             </div>
             <div class="form-group">
@@ -56,10 +85,10 @@
             <div class="form-group">
                 <label class="col-xs-3 control-label">Пол:</label>
                 <div class="col-xs-1">
-                    <label><input type="radio" name="gender" value="male" checked>Муж</label>
+                    <label><input type="radio" name="gender" value="m" checked>Муж</label>
                 </div>
                 <div class="col-xs-1">
-                    <label><input type="radio" name="gender" value="male">Жен</label>
+                    <label><input type="radio" name="gender" value="mj">Жен</label>
                 </div>
             </div>
             <div class="form-group">
@@ -76,8 +105,18 @@
             </div>
             <div class="form-group">
                 <label class="col-xs-3 control-label"></label>
-                <input id="sub" type="submit" value="Отправить" class="btn btn-primary">
-                <input type="reset" value="Отчисть" class="btn btn-danger"><br>
+                <input id="submit" type="submit" value="Отправить" class="btn btn-primary">
+                <input id="reset" type="reset" value="Отчисть" class="btn btn-danger"><br>
+            </div>
+             <div class="form-group">
+                <label class="col-xs-3 control-label"></label>
+                <div id="ajax_loading">
+                    <img align="absmiddle" src="images/spinner.gif">&nbsp;Processing...
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label"></label>
+                <span style="display:none;"></span>
             </div>
         </fieldset>
     </form>

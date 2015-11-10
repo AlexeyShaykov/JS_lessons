@@ -4,7 +4,7 @@ require "gump.class.php";
 $validator = new GUMP();
 
 $_POST = $validator->sanitize($_POST);
-
+print_r($_POST);
 $rules = array(
 	'username'    => 'required|alpha_numeric|max_len,100|min_len,6',
 	'password'    => 'required|max_len,100|min_len,6',

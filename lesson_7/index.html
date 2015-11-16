@@ -91,6 +91,8 @@
                                             }
                                         };
                                         for (var val in json.error) {
+                                            var str = val.split(" ")[0].toLowerCase();
+                                            $('[id^=' + str +']').effect('shake');
                                             $( "#dialog" ).append('<p>' + val +'!' + json.error[val] + '</p>' + '<br>');
                                             var d =  $( "#dialog" ).dialog( opt, {
                                                 close: function( event, ui ) {

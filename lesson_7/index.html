@@ -14,7 +14,6 @@
         input[type="email"]:invalid {
             color: red;
         }
-        #ajax_loading { display: none; font-size: 12px; font-family: Tahoma; }
     </style>
     <script type="text/javascript">
         (function($){
@@ -22,7 +21,8 @@
                 $.datepicker.setDefaults($.datepicker.regional['nl']); 
                 $.datepicker.setDefaults({ dateFormat: 'yy-mm-dd' });
                 $( "#datepicker" ).datepicker({
-                    dayNamesMin: [ "Пон", "Вт", "Ср", "Чет", "Пят", "Суб", "Вос" ],
+                    dayNamesMin: [ "Вос", "Пон", "Вт", "Ср", "Чет", "Пят", "Суб" ],
+                    firstDay : 1,
                     changeMonth: true,
                     changeYear: true,
                     yearRange: '1915:'+(new Date).getFullYear() 
@@ -45,6 +45,64 @@
                                 console.log(json);
                                 $('#submit').show();
                                 $('#reset').show();
+                                if (json.error == null ) {
+                                    var opt = {
+                                            autoOpen: false,
+                                            modal: true,
+                                            title: 'Успех',
+                                            buttons : {
+                                                Ok: function() {
+                                                    $(this).dialog("close");
+                                                }
+                                            },
+                                            open: function() {
+                                                    $('.ui-dialog-buttonpane').find('button:contains("Ok")').css({
+                                                                                            'color' : 'green',
+                                                                                            'background' : '#DFF0D8'
+                                                                                            });
+                                            }
+                                    };
+                                    $( "#dialog" ).append('<p>Данные приняты</p>');
+                                    var d =  $( "#dialog" ).dialog( opt, {
+                                                close: function( event, ui ) {
+                                                    $(this).empty();
+                                                }
+                                            });
+                                            d.dialog("open").prev(".ui-dialog-titlebar").css({
+                                                                                            'color' : 'green',
+                                                                                            'background' : '#DFF0D8'
+                                                                                            });
+                                    
+                                }   else {
+                                        var opt = {
+                                            autoOpen: false,
+                                            modal: true,
+                                            title: 'Ошибка',
+                                            buttons : {
+                                                Ok: function() {
+                                                    $(this).dialog("close");
+                                                }
+                                            },
+                                            open: function() {
+                                                    $('.ui-dialog-buttonpane').find('button:contains("Ok")').css({
+                                                                                            'color' : 'red',
+                                                                                            'background' : '#F2DEDE'
+                                                                                            });
+                                            }
+                                        };
+                                        for (var val in json.error) {
+                                            $( "#dialog" ).append('<p>' + val +'!' + json.error[val] + '</p>' + '<br>');
+                                            var d =  $( "#dialog" ).dialog( opt, {
+                                                close: function( event, ui ) {
+                                                    $(this).empty();
+                                                }
+                                            });
+                                            d.dialog("open").prev(".ui-dialog-titlebar").css({
+                                                                                            'color' : 'red',
+                                                                                            'background' : '#F2DEDE'
+                                                                                            });
+                                        }
+                                    }      
                             },
                             error: function(result) {
                                 console.log(result);
@@ -52,39 +110,22 @@
                                 $('#reset').show();
                             },
                             progress: function(e) {
-                                console.log(e);
-                                if(e.lengthComputable) {
-                                    var pct = (e.loaded / e.total) * 100;
-                                     console.log(pct);
-                                    $('#prog')
-                                        .progressbar('option', 'value', pct)
-                                        .children('.ui-progressbar-value')
-                                        .html(pct.toPrecision(3) + '%')
-                                        .css('display', 'block');
-                                } else {
-                                    console.warn('Content Length not reported!');
-                                }
+                                // console.log(e);
+                                // if(e.lengthComputable) {
+                                //     var pct = (e.loaded / e.total) * 100;
+                                //      console.log(pct);
+                                //     $('#prog')
+                                //         .progressbar('option', 'value', pct)
+                                //         .children('.ui-progressbar-value')
+                                //         .html(pct.toPrecision(3) + '%')
+                                //         .css('display', 'block');
+                                // } else {
+                                //     console.warn('Content Length not reported!');
+                                // }
                             }
                         });
-                },3000);
+                },1000);
                 $('#prog').progressbar( "destroy" );
-                    // setTimeout(function() {
-                    //     $.post("validator.php",form_data, function(data, textStatus){
-                    //     $('#submit').show();
-                    //     $('#reset').show();
-                    //     $('#ajax_loading').hide();
-                    //     var $info = $('#info');
-                    //         if (data.error == null ) {
-                    //             $info.addClass('alert alert-success fade in');
-                    //             $('#info').append('<strong>Ура! </strong>Данные приняты');
-                    //         } else {
-                    //             for (var val in data.error) {
-                    //                 $('#info').append('<strong>' + val +'!' + ' </strong>' + data.error[val] + '<br>');
-                    //                 $info.addClass('alert alert-danger fade in');
-                    //             }
-                    //         }
-                    //     },"json")
-                    // },1000);
                 });
             });
         })(jQuery);
@@ -146,12 +187,10 @@
                 <input id="reset" type="reset" value="Отчисть" class="btn btn-danger"><br>
             </div>
             <div id="prog"></div>
+            <div id="dialog">
+            </div>
         </fieldset>
     </form>
 </main>
 </body>
 </html>
-<!-- 
-$.post("validator.php",{ username:$form.find( 'input[name="username"]' ).val(),password:$form.find( 'input[name="password"]' ).val(),
-                            email:$form.find( 'input[name="email"]' ).val(), gender:$form.find( 'input[name="gender"]:checked' ).val(),
-                            credit_card:$form.find( 'input[name="card-number"]' ).val(),bio:$form.find( 'textarea[name="bio"]' ).val() } -->

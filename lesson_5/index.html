@@ -28,7 +28,6 @@
                     $('#ajax_loading').show();
                     event.preventDefault();
                     var form_data = $(this).serializeArray();
-                    console.log(form_data);
                     // var dict = {};
                     // form_data.forEach(function(val, i) {
                     //     console.log(val);
@@ -39,23 +38,24 @@
                     $span.css({'display' : 'none'});
                     setTimeout(function() {
                         $.post("validator.php",form_data, function(data, textStatus){
-                        $('#submit').show();
-                        $('#reset').show();
+                            $('#submit').show();
+                            $('#reset').show();
                             $('#ajax_loading').hide();
+                            console.log(data);
                                 if (textStatus == "success") {
-                                    if (data == "true") {
-                                        $span.html('УРА!')
-                                        $span.css({
-                                                'color' : '#6DBF69',
-                                                'display' : 'block'
-                                                });
-                                    } else {
-                                        $span.html('Печалька')
-                                        $span.css({
-                                                'color' : '#CC4A49',
-                                                'display' : 'block'
-                                                });
-                                    }
+                                        if (data == "true") {
+                                            $span.html('УРА!')
+                                            $span.css({
+                                                    'color' : '#6DBF69',
+                                                    'display' : 'block'
+                                                    });
+                                        } else {
+                                            $span.html('Печалька')
+                                            $span.css({
+                                                    'color' : '#CC4A49',
+                                                    'display' : 'block'
+                                                    });
+                                        }
                                 }
                         })
                     },1000);
